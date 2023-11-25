@@ -4,8 +4,10 @@
 '''
 
 from tqdm import tqdm
+import utils as U
+import Model
 
-class KNN:
+class KNN(Model):
     def __init__(self, k):
         self.k = k
         self.mp = {}
@@ -42,8 +44,9 @@ class KNN:
             RETURNS
                 pred    - pedicted output
         '''
-        closest_neighbours = sorted(self.mp.items(), key = lambda x: )
-        for x, y in self.mp.keys():
+        closest_neighbours = sorted(self.mp.items(), key = lambda x: U.euclidian_distance(x[0], x))
+        pred_labels = [closest_neighbours[i] for i in closest_neighbours.keys()[:self.k]]
+        return pred_labels
 
 
     def predict(self, X):
@@ -59,4 +62,9 @@ class KNN:
 
         predicted_labels = [self._predict(x) for x in X]
         return predicted_labels
+    
+
+
+
+
 
