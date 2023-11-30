@@ -4,7 +4,7 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from abc import ABC, abstractmethod
 
-class BaseDataset(ABC):
+class Dataset(ABC):
     @abstractmethod
     def get_data(self):
         '''

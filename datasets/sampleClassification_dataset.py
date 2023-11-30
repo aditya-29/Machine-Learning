@@ -2,20 +2,22 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-from datasets.BaseDataset import Dataset 
+from datasets.BaseDataset import Dataset
 
-class SampleLR(Dataset):
-    def __init__(self, n_samples = 100, 
-                 n_features = 1, 
-                 noise = 20,
+
+class SampleClassification(Dataset):
+    def __init__(self, n_samples = 1000, 
+                 n_features = 10, 
+                 n_classes = 2,
                  test_size = 0.2, 
-                 random_state = 1234):
+                 random_state = 123):
         '''
             Method to initialize the dataset
         '''
 
-        X, y = datasets.make_regression(n_samples=n_samples, n_features=n_features, noise=noise)
+        X, y = datasets.make_classification(n_samples=n_samples, n_features=n_features, n_classes=n_classes, random_state=random_state)
         self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+
 
     def get_data(self):
         '''
@@ -23,6 +25,7 @@ class SampleLR(Dataset):
         '''
         return self.x_train, self.x_test, self.y_train, self.y_test
     
+
     def visualize(self):
         '''
             Method to perform basic visya

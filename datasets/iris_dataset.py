@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-from datasets.BaseDataset import BaseDataset 
+from datasets.BaseDataset import Dataset 
 
-class Iris(BaseDataset):
+class Iris(Dataset):
     def __init__(self, test_size = 0.2, random_state = 1234):
         '''
             Method to initialize the dataset

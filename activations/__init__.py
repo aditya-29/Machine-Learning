@@ -1,1 +1,2 @@
 from activations.sigmoid_activation import Sigmoid
+from activations.unit_step_func import UnitStep
