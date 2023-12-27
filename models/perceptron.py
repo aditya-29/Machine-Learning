@@ -13,7 +13,17 @@ class Perceptron(Model):
 
     def fit(self, X, y):
         n_samples, n_features = X.shape
-        self.weights = np.zeros()
+        self.weights = np.zeros(n_features)
+        self.bias = 0
+
+        for e in range(self.epochs):
+            for idx, xi in enumerate(X):
+                linear_output = np.dot(xi, self.weights) + self.bias
+                out = self.activation(linear_output)
+
+                # update
+                self.weights += self.lr * (y[idx] - out) * xi
+                self.bias += self.lr * (y[idx] - out)
         
 
     def predict(self, X):

@@ -1,1 +1,2 @@
 from loss.categorical_crossentropy_loss import Categorical_CrossEntropy
+from loss.mean_squared_error_loss import MeanSquaredErrorLoss
